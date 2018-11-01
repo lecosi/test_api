@@ -5,7 +5,12 @@ defmodule TestApi.VehicleController do
 
   def index(conn, _params) do
     vehicles = Repo.all(Vehicle)
-    render(conn, "index.json", vehicles: vehicles)
+    render(conn, "vehicle_list.html", vehicles: vehicles)
+  end
+
+  def new(conn, _params) do
+    changeset = Vehicle.changeset(%Vehicle{}, %{})
+    render conn, "vehicle_new.html", changeset: changeset
   end
 
   def create(conn, %{"vehicle" => vehicle_params}) do
@@ -16,7 +21,7 @@ defmodule TestApi.VehicleController do
         conn
         |> put_status(:created)
         |> put_resp_header("location", vehicle_path(conn, :show, vehicle))
-        |> render("show.json", vehicle: vehicle)
+        |> render("vehicle_new.html", vehicle: vehicle)
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)

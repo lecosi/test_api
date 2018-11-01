@@ -1,0 +1,11 @@
+  <%= form_for @changeset, owner_path(@conn, :create), fn f -> %>
+    <div class="form-group">
+      <%= text_input f, :identification, placeholder: "Cédula" %>
+      <%= text_input f, :first_name, placeholder: "Primer nombre" %>
+      <%= text_input f, :last_name, placeholder: "Segundo nombre" %>
+      <%= text_input f, :email, placeholder: "Email" %>
+      <%= text_input f, :phone_number, placeholder: "Telefono" %>
+    </div>
+
+    <%= submit "Guardar", class: "btn btn-primary" %>
+  <% end %>

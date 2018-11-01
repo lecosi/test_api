@@ -1,0 +1,8 @@
+<h2>Vehicles List</h2>
+<ul class="collection">
+  <%= for vehicle <- @vehicles do %>
+    <li class="colletion-item">
+      <%= vehicle.vehicle_plate %>
+    </li>
+  <% end %>
+</ul>

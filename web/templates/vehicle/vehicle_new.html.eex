@@ -1,0 +1,10 @@
+  <%= form_for @changeset, vehicle_path(@conn, :create), fn f -> %>
+    <div class="form-group">
+      <%= text_input f, :vehicle_plate, placeholder: "Placa" %>
+      <%= select f, :vehicle_type_id, ["CAMIONETA": 1, "DEPORTIVO": 2] %>
+      <%= select f, :brand_id, ["MERCEDES": 1, "BMW": 2] %>
+      <%= select f, :owner_id, ["LEONARDO": 1] %>
+    </div>
+
+    <%= submit "Guardar", class: "btn btn-primary" %>
+  <% end %>

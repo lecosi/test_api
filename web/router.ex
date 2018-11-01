@@ -17,6 +17,10 @@ defmodule TestApi.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/vehicles", VehicleController, :index
+    get "/vehicle/new", VehicleController, :new
+    get "/owners", OwnerController, :index
+    get "/owner/new", OwnerController, :new
   end
 
   scope "/api", TestApi do

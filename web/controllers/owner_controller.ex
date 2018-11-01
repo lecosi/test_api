@@ -5,7 +5,12 @@ defmodule TestApi.OwnerController do
 
   def index(conn, _params) do
     owners = Repo.all(Owner)
-    render(conn, "index.json", owners: owners)
+    render(conn, "owner_list.html", owners: owners)
+  end
+
+  def new(conn, _params) do
+    changeset = Owner.changeset(%Owner{}, %{})
+    render conn, "owner_new.html", changeset: changeset
   end
 
   def create(conn, %{"owner" => owner_params}) do
